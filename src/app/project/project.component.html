@@ -1,0 +1,41 @@
+<div class="card">
+  <h3>Create a project</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Project name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select
+        class="form-control"
+        name="status"
+        id="status"
+        formControlName="status"
+      >
+        <option [value]="status" *ngFor="let status of statuses">
+          {{ status | titlecase }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
