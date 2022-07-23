@@ -15,10 +15,14 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      name: new FormControl(null, [
-        Validators.required,
-        Validators.allowedProjectName,
-      ]),
+      name: new FormControl(
+        null,
+        [
+          Validators.required,
+          // Validators.allowedProjectName,
+        ],
+        Validators.allowedProjectNameAsync
+      ),
       email: new FormControl(null, [Validators.required, Validators.email]),
       status: new FormControl(this.statuses[0]),
     });
